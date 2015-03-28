@@ -78,6 +78,17 @@ describe('MessageOutputter', function() {
             messageOutputter.doOutput(fakeId);
 
             expect(element.innerHTML).toMatch(/(<h2>)[a-z]+(<\/h2>)/i);
+
+            var rawMessage = element.innerHTML.replace('<h2>', '');
+            rawMessage = rawMessage.replace('</h2>', '');
+
+            expect(rawMessage).toBeInArray(messages);
+        });
+
+        it('should should throw an error if given a nonexistent element', function() {
+            expect(function() {
+                messageOutputter.doOutput('nope');
+            }).toThrow(new Error('No element found with ID of nope'));
         });
     });
 });

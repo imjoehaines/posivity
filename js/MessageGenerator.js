@@ -4,8 +4,8 @@ var MessageGenerator = function() {};
     'use strict';
 
     MessageGenerator.prototype.setMessages = function(messages) {
-        if (!Array.isArray(messages)) {
-            throw new Error('Messages must be an array');
+        if (!Array.isArray(messages) || messages.length === 0) {
+            throw new Error('Messages must be a non-empty array');
         }
 
         this.messages = messages;

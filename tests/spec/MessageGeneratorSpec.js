@@ -20,7 +20,14 @@ describe('MessageGenerator', function() {
             // anonymous function so setMessages() isn't executed directly
             expect(function() {
                     messageGenerator.setMessages(messages);
-            }).toThrow(new Error('Messages must be an array'));
+            }).toThrow(new Error('Messages must be a non-empty array'));
+        });
+
+        it('should throw an error if messages is an empty array', function() {
+            // anonymous function so setMessages() isn't executed directly
+            expect(function() {
+                    messageGenerator.setMessages([]);
+            }).toThrow(new Error('Messages must be a non-empty array'));
         });
     });
 
@@ -63,7 +70,7 @@ describe('MessageGenerator', function() {
     });
 
     describe('getRandomMessage', function() {
-        it('should return a random message when getRandomMessage is called', function() {
+        it('should return a random message', function() {
             var messages = ['some', 'test', 'messages'];
 
             messageGenerator.setMessages(messages);
