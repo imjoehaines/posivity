@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Posivity</title>
+    <title>posivity</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
 
     <header>
-        <h1>Posivity</h1>
+        <p>posivity</p>
     </header>
 
-    <section id="message-output">
-        ...
+    <section>
+        <h1 id="message-output"></h1>
     </section>
+
+    <footer>
+        <p>abababababb</p>
+    </footer>
 
     <script src="js/MessageGenerator.js"></script>
     <script src="js/MessageOutputter.js"></script>
+    <script src="js/MessageList.js"></script>
+
+    <script>
+        MessageOutputter = new MessageOutputter(
+            new MessageGenerator(),
+            new MessageList().getList()
+        );
+
+        MessageOutputter.doOutput('message-output');
+    </script>
 
 </body>
 </html>

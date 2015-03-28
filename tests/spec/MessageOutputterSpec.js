@@ -36,29 +36,6 @@ describe('MessageOutputter', function() {
 
     });
 
-    describe('getOutput', function() {
-        it('should output a specified message surrounded by <h2> tags', function() {
-            var messageOutputter = new MessageOutputter(
-                new MessageGenerator(),
-                ['a set message']
-            );
-
-            var output = messageOutputter.getOutput();
-
-            expect(output).toEqual('<h2>a set message</h2>');
-        });
-
-        it('should return a random message surrounded by <h2> tags', function() {
-            var output = messageOutputter.getOutput();
-
-            expect(output).toMatch(/^(<h2>)[a-z]+(<\/h2>)$/i);
-
-            var rawMessage = output.replace('<h2>', '').replace('</h2>', '');
-
-            expect(rawMessage).toBeInArray(messages);
-        });
-    });
-
     describe('doOutput', function() {
         var fakeId;
         var element;
@@ -73,14 +50,10 @@ describe('MessageOutputter', function() {
             body.appendChild(element);
         });
 
-        it('should output a random message surrounded by <h2> tags into a given DOM element', function() {
+        it('should output a random message into a given DOM element', function() {
             messageOutputter.doOutput(fakeId);
 
-            expect(element.innerHTML).toMatch(/(<h2>)[a-z]+(<\/h2>)/i);
-
-            var rawMessage = element.innerHTML.replace('<h2>', '').replace('</h2>', '');
-
-            expect(rawMessage).toBeInArray(messages);
+            expect(element.innerHTML).toBeInArray(messages);
         });
 
         it('should should throw an error if given a nonexistent element', function() {
