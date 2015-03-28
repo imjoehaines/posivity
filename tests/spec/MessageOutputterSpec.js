@@ -53,8 +53,7 @@ describe('MessageOutputter', function() {
 
             expect(output).toMatch(/^(<h2>)[a-z]+(<\/h2>)$/i);
 
-            var rawMessage = output.replace('<h2>', '');
-            rawMessage = rawMessage.replace('</h2>', '');
+            var rawMessage = output.replace('<h2>', '').replace('</h2>', '');
 
             expect(rawMessage).toBeInArray(messages);
         });
@@ -79,8 +78,7 @@ describe('MessageOutputter', function() {
 
             expect(element.innerHTML).toMatch(/(<h2>)[a-z]+(<\/h2>)/i);
 
-            var rawMessage = element.innerHTML.replace('<h2>', '');
-            rawMessage = rawMessage.replace('</h2>', '');
+            var rawMessage = element.innerHTML.replace('<h2>', '').replace('</h2>', '');
 
             expect(rawMessage).toBeInArray(messages);
         });
