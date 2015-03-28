@@ -6,7 +6,7 @@ beforeEach(function () {
             return {
                 compare: function (item, array) {
                     return {
-                        pass: array.indexOf(item) !== -1
+                        pass: Array.isArray(array) && array.indexOf(item) !== -1
                     };
                 }
             };
