@@ -10,6 +10,21 @@ beforeEach(function () {
                     };
                 }
             };
-}
+        },
+
+        // checks an integer is between (or equal to one of) two values
+        toBeIntBetween: function () {
+            return {
+                compare: function (actual, min, max) {
+                    return {
+                        pass: (
+                            Number.isInteger(actual) &&
+                            Number.isInteger(min) &&
+                            Number.isInteger(max)) &&
+                            (actual >= min && actual <= max)
+                    };
+                }
+            };
+        }
     });
 });

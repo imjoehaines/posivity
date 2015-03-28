@@ -11,20 +11,30 @@ var MessageGenerator = function() {};
         this.messages = messages;
     };
 
-    MessageGenerator.prototype.getMessages = function() {
+    MessageGenerator.prototype.checkMessagesIsSet = function() {
         if (!this.messages) {
             throw new Error('Messages has not been set yet');
         }
+    };
+
+    MessageGenerator.prototype.getMessages = function() {
+        this.checkMessagesIsSet();
 
         return this.messages;
     };
 
-    MessageGenerator.prototype.getRandomMessage = function() {
-        if (!this.messages) {
-            throw new Error('Messages has not been set yet');
+    MessageGenerator.prototype.getRandomIndex = function(maxValue) {
+        if (typeof maxValue !== 'number') {
+            throw new Error('maxValue must be a number');
         }
 
-        var randomIndex = Math.floor(Math.random() * this.messages.length);
+        return Math.floor(Math.random() * maxValue);
+    };
+
+    MessageGenerator.prototype.getRandomMessage = function() {
+        this.checkMessagesIsSet();
+
+        var randomIndex = this.getRandomIndex(this.messages.length);
 
         return this.messages[randomIndex];
     };

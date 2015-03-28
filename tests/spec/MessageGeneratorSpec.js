@@ -22,11 +22,43 @@ describe('MessageGenerator', function() {
                     messageGenerator.setMessages(messages);
             }).toThrow(new Error('Messages must be an array'));
         });
+    });
 
-        it('should throw an error is messages are fetched before being set', function () {
+    describe('check messages is set', function() {
+        it('should pass if messages is set', function() {
+            var messages = ['boop', 'beep', 'bop'];
+
+            messageGenerator.setMessages(messages);
+
             expect(function() {
-                messageGenerator.getMessages();
-            }).toThrow(new Error('Messages has not been set yet'));
+                messageGenerator.checkMessagesIsSet();
+            }).not.toThrow();
+        });
+
+        it('should throw an error if messages is not set', function() {
+            expect(function() {
+                messageGenerator.checkMessagesIsSet();
+            }).toThrow();
+        });
+    });
+
+    describe('getRandomIndex', function() {
+        it('should return a number between 0 and 10 when passed 10', function() {
+            var index = messageGenerator.getRandomIndex(10);
+
+            expect(index).toBeIntBetween(0, 10);
+        });
+
+        it('should throw an error if passed an array', function() {
+            expect(function() {
+                messageGenerator.getRandomIndex([1000]);
+            }).toThrow(new Error('maxValue must be a number'));
+        });
+
+        it('should throw an error if passed a string', function() {
+            expect(function() {
+                messageGenerator.getRandomIndex('999');
+            }).toThrow(new Error('maxValue must be a number'));
         });
     });
 
@@ -37,12 +69,6 @@ describe('MessageGenerator', function() {
             messageGenerator.setMessages(messages);
 
             expect(messageGenerator.getRandomMessage()).toBeInArray(messages);
-        });
-
-        it('should throw an error when a random message is fetched before messages is set', function() {
-            expect(function() {
-                messageGenerator.getRandomMessage();
-            }).toThrow(new Error('Messages has not been set yet'));
         });
     });
  
