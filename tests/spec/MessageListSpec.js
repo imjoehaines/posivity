@@ -14,6 +14,15 @@ describe('MessageList', function() {
             expect(messageList.getList()).toEqual(list);
         });
 
+        it('should add prefixes & suffixes to a given list', function() {
+            var list = ['some', 'test', 'messages'];
+            var expectedList = ['a some b', 'a test b', 'a messages b'];
+
+            messageList.setList(list, 'a ', ' b');
+
+            expect(messageList.getList()).toEqual(expectedList);
+        });
+
         it('should throw an error if a list isn\'t an array', function() {
             var list = { test: 'something' };
 
