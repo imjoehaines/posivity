@@ -1,22 +1,46 @@
 {
-    "possibleLists": ["short", "long"],
-    "short": {
+    "possibleLists": ["you are", "statements", "enjoy", "be"],
+    "you are": {
         "prefix": "You're ",
         "messages": [
-            "beautiful",
             "amazing",
+            "beautiful",
+            "brilliant",
             "fantastic",
-            "wonderful",
-            "the best"
+            "great",
+            "the best",
+            "wonderful"
         ],
         "suffix": "!"
     },
-    "long": {
+    "statements": {
         "messages": [
-            "abiuaiusdfuih idhsiufds",
-            "sioudhfiuhd oufhsd fdsf",
-            "dfsiuhuishd fiuhsdiu fhusid",
-            "poasifoiaj iap jdspaj aps"
-        ]
+            "Stay positive",
+            "Think positive",
+            "Smile",
+            "Good things are going to happen",
+            "Always believe",
+            "Believe in yourself",
+            "You can do anything"
+        ],
+        "suffix": "!"
+    },
+    "enjoy": {
+        "prefix": "Enjoy ",
+        "messages": [
+            "life",
+            "yourself",
+            "today"
+        ],
+        "suffix": "!"
+    },
+    "be": {
+        "prefix": "Be ",
+        "messages": [
+            "happy",
+            "positive",
+            "yourself"
+        ],
+        "suffix": "!"
     }
 }
