@@ -23,11 +23,11 @@ var app = {
 
                     messageOutputter.doOutput('message-output');
                 } catch (e) {
-                    outputPredefinedList();
+                    app.outputPredefinedList();
                 }
             },
             function(response) {
-                outputPredefinedList();
+                app.outputPredefinedList();
             }
         );
     },
