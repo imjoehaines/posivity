@@ -15,17 +15,51 @@
         <h1 id="message-output"></h1>
     </section>
 
+    <script src="lib/laroux.min.js"></script>
     <script src="js/MessageGenerator.js"></script>
     <script src="js/MessageOutputter.js"></script>
     <script src="js/MessageList.js"></script>
 
     <script>
-        MessageOutputter = new MessageOutputter(
-            new MessageGenerator(),
-            new MessageList().getList()
-        );
 
-        MessageOutputter.doOutput('message-output');
+            $l.ajax.getJson(
+                'lists.json',
+                null,
+                function(response) {
+                    try {
+                        var listIndex = $l.helpers.random(0, response.possibleLists.length - 1);
+                        var listType = response.possibleLists[listIndex];
+                        var list = response[listType];
+                        var messages = list.messages;
+                        var prefix = list.prefix;
+                        var suffix = list.suffix;
+
+                        var messageOutputter = new MessageOutputter(
+                            new MessageGenerator(),
+                            new MessageList()
+                                .setList(list.messages, list.prefix, list.suffix)
+                                .getList()
+                        );
+
+                        messageOutputter.doOutput('message-output');
+                    } catch (e) {
+                        outputPredefinedList();
+                    }
+                },
+                function(response) {
+                    outputPredefinedList();
+                }
+            );
+
+        function outputPredefinedList() {
+            var messageOutputter = new MessageOutputter(
+                new MessageGenerator(),
+                new MessageList().setPredefinedList().getList()
+            );
+
+            messageOutputter.doOutput('message-output');
+        }
+
     </script>
 
 </body>

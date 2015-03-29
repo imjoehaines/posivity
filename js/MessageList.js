@@ -1,22 +1,44 @@
-var MessageList = function() {
-    this.setPredefinedList();
-};
+var MessageList = function() {};
 
 (function(){
     'use strict';
 
-    MessageList.prototype.setList = function(list) {
+    /**
+     * Sets the list
+     * @param {array} list    An array of messages to set as the list
+     * @param {string} prefix A string to prepend to each list item
+     * @param {string} suffix A string to append to each list item
+     */
+    MessageList.prototype.setList = function(list, prefix, suffix) {
         if (!Array.isArray(list) || list.length === 0) {
             throw new Error('A new list must be a non-empty array');
         }
 
+        prefix = prefix || '';
+        suffix = suffix || '';
+
+        // add the prefix & suffix to each list item
+        $l.aeach(list, function(index, value) {
+            list[index] = prefix + value + suffix;
+        });
+
         this.list = list;
+
+        // allow method chaining
+        return this;
     };
 
+    /**
+     * Gets the currently set list
+     * @return {array} An array of messages
+     */
     MessageList.prototype.getList = function() {
         return this.list;
     };
 
+    /**
+     * Sets a predefined list in cases where the ajax call fails
+     */
     MessageList.prototype.setPredefinedList = function() {
         this.setList([
             'The fire edits the puny land',
@@ -32,6 +54,8 @@ var MessageList = function() {
             'The laugh motivates the join',
             'The father copys the delicate level'
         ]);
+
+        return this;
     };
 
 }());

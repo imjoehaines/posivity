@@ -1,0 +1,21 @@
+{
+    "possibleLists": ["short", "long"],
+    "short": {
+        "prefix": "You're ",
+        "messages": [
+            "beautiful",
+            "amazing",
+            "fantastic",
+            "wonderful"
+        ],
+        "suffix": "!"
+    },
+    "long": {
+        "messages": [
+            "abiuaiusdfuih idhsiufds",
+            "sioudhfiuhd oufhsd fdsf",
+            "dfsiuhuishd fiuhsdiu fhusid",
+            "poasifoiaj iap jdspaj aps"
+        ]
+    }
+}
