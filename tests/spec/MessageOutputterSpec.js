@@ -50,6 +50,10 @@ describe('MessageOutputter', function() {
             body.appendChild(element);
         });
 
+        afterEach(function() {
+            element.parentNode.removeChild(element);
+        });
+
         it('should output a random message into a given DOM element', function() {
             messageOutputter.doOutput(fakeId);
 
