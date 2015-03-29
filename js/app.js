@@ -1,11 +1,12 @@
 var app = {
     /**
      * Function called on page load to output a message
+     * @param {string} Path to a JSON file
      */
-    initialise: function() {
+    initialise: function(jsonFile) {
         // ajax call - json file, query string, success callback, failure callback
         $l.ajax.getJson(
-            'lists.json',
+            jsonFile,
             null,
             function(response) {
                 try {
