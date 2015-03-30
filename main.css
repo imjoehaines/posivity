@@ -1,3 +1,7 @@
+html {
+    background: 'rgb(50, 50, 50)';
+}
+
 html, body {
     height: 100%;
     overflow: hidden;
@@ -21,7 +25,8 @@ header {
     left: 0;
     margin: 0 auto;
     font-style: italic;
-    color: rgba(33, 33, 33, 0.33);
+    color: rgb(200, 200, 200);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 
 section {
@@ -29,9 +34,11 @@ section {
     align-items: center;
     justify-content: center;
     height: 90%;
+    color: rgb(240, 240, 240);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 
 h1 {
-    font-size: 250%;
+    font-size: 300%;
     font-weight: normal;
 }

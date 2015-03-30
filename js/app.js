@@ -1,9 +1,20 @@
 var app = {
     /**
-     * Function called on page load to output a message
+     * Function called on page load to output a message and set page background
      * @param {string} Path to a JSON file
      */
     initialise: function(jsonFile) {
+        var imageNumber = $l.helpers.random(1, 29);
+
+        $l.css.setProperty(
+            $l('body'), {
+                "background": "url('img/" + imageNumber + ".jpg') no-repeat center center fixed",
+                "-webkit-background-size": "cover",
+                "-moz-background-size": "cover",
+                "-o-background-size": "cover",
+                "background-size": "cover",
+         });
+
         // ajax call - json file, query string, success callback, failure callback
         $l.ajax.getJson(
             jsonFile,
