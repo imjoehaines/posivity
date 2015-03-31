@@ -4,8 +4,10 @@ var app = {
      * @param {string} Path to a JSON file
      */
     initialise: function(jsonFile) {
+        // TODO: Make this better
         var imageNumber = $l.helpers.random(1, 29);
 
+        // set the fullscreen background image
         $l.css.setProperty(
             $l('body'), {
                 "background": "url('img/" + imageNumber + ".jpg') no-repeat center center fixed",
