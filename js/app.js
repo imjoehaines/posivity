@@ -8,11 +8,11 @@ var app = {
 
         $l.css.setProperty(
             $l('body'), {
-                "background": "url('img/" + imageNumber + ".jpg') no-repeat center center fixed",
-                "-webkit-background-size": "cover",
-                "-moz-background-size": "cover",
-                "-o-background-size": "cover",
-                "background-size": "cover",
+                'background': 'url(\'img/' + imageNumber + '.jpg\') no-repeat center center fixed',
+                '-webkit-background-size': 'cover',
+                '-moz-background-size': 'cover',
+                '-o-background-size': 'cover',
+                'background-size': 'cover',
          });
 
         // ajax call - json file, query string, success callback, failure callback
