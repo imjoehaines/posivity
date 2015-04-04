@@ -40,7 +40,6 @@ var app = {
         var listIndex = $l.helpers.random(0, response.possibleLists.length - 1);
         var listType = response.possibleLists[listIndex];
         var list = response[listType];
-        var messages = list.messages;
 
         var messageOutputter = new MessageOutputter(
             new MessageGenerator(),
