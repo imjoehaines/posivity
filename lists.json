@@ -1,0 +1,46 @@
+{
+    "possibleLists": ["you are", "statements", "enjoy", "be"],
+    "you are": {
+        "prefix": "You're ",
+        "messages": [
+            "amazing",
+            "beautiful",
+            "brilliant",
+            "fantastic",
+            "great",
+            "the best",
+            "wonderful"
+        ],
+        "suffix": "!"
+    },
+    "statements": {
+        "messages": [
+            "Stay positive",
+            "Think positive",
+            "Smile",
+            "Good things are going to happen",
+            "Always believe",
+            "Believe in yourself",
+            "You can do anything"
+        ],
+        "suffix": "!"
+    },
+    "enjoy": {
+        "prefix": "Enjoy ",
+        "messages": [
+            "life",
+            "yourself",
+            "today"
+        ],
+        "suffix": "!"
+    },
+    "be": {
+        "prefix": "Be ",
+        "messages": [
+            "happy",
+            "positive",
+            "yourself"
+        ],
+        "suffix": "!"
+    }
+}

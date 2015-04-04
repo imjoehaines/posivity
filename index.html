@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>posivity</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+
+    <header>
+        <p>posivity</p>
+    </header>
+
+    <section>
+        <h1 id="message-output"></h1>
+    </section>
+
+    <script src="lib/laroux.min.js"></script>
+    <script src="js/MessageGenerator.js"></script>
+    <script src="js/MessageOutputter.js"></script>
+    <script src="js/MessageList.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+        $l.ready(function() {         
+            app.initialise('/lists.json');
+        });
+    </script>
+
+</body>
+</html>

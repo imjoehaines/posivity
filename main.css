@@ -1,0 +1,45 @@
+html {
+    background: 'rgb(50, 50, 50)';
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    max-width: 66%;
+    margin: 0 auto;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+p {
+    margin: 0;
+}
+
+header {
+    position: absolute;
+    top: 5%;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    font-style: italic;
+    color: rgb(240, 240, 240);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    opacity: 0.75;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    color: rgb(240, 240, 240);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+h1 {
+    font-size: 300%;
+    font-weight: normal;
+}
