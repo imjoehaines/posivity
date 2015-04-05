@@ -1,12 +1,13 @@
 describe('app', function() {
     var element;
+    var body;
 
     beforeEach(function() {
         element = document.createElement('section');
         element.setAttribute('id', 'message-output');
-        // element.style.display = 'none';
+        element.style.display = 'none';
 
-        var body = document.getElementsByTagName('body')[0];
+        body = document.getElementsByTagName('body')[0];
         body.appendChild(element);
     });
 
@@ -15,17 +16,42 @@ describe('app', function() {
     });
 
     describe('initialise', function() {
-        // fails finding element with id 'message-output'
-        xit('should output a list from an ajax call', function() {
-            app.initialise('/lists.json');
-            expect($l('#message-output').innerHTML).toBe('??');
+        it('should output a list from an ajax call', function(done) {
+            var expectedMessages = [
+                'test toast teest',
+                'test tist teest',
+                'test tost teest',
+                'test torst teest',
+                'test trost teest'
+            ];
+
+            app.initialise('/tests/spec/test.json');
+
+            // small timeout to wait for ajax
+            // TODO: use jasmine-ajax to mock ajax call so this isn't needed
+            setTimeout(function() {
+                expect(element.innerHTML).toBeInArray(expectedMessages);
+                done();
+            }, 25);
+        });
+
+        xit('should fallback to a predefined list if ajax fails', function(done) {
+            // TODO: use jasmine-ajax to allow ajax call to fail
         });
     });
 
     describe('output functions', function() {
+        describe('outputRandomImage', function() {
+            it('should set the style of the body tag', function() {
+                var styleRegex = /background: url\([\S]+[0-9]*.jpg\) 50% 50% \/ cover no-repeat fixed/;
+
+                app.outputRandomImage();
+
+                expect($l.dom.attr(body, 'style')).toMatch(styleRegex);
+            });
+        });
 
         describe('outputFromJsonList', function() {
-
             it('should output from a given json response', function() {
                 var exampleJson = '{"possibleLists":["test"],"test":{"prefix":"test ","messages":["toast","tist","tost","torst","trost"],"suffix":" teest"}}';
 

@@ -1,0 +1,16 @@
+{
+    "possibleLists": [
+        "test"
+    ],
+    "test": {
+        "prefix": "test ",
+        "messages": [
+            "toast",
+            "tist",
+            "tost",
+            "torst",
+            "trost"
+        ],
+        "suffix": " teest"
+    }
+}
