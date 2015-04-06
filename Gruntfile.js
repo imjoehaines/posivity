@@ -39,7 +39,22 @@ module.exports = function(grunt) {
                 ],
                 tasks: ['jasmine:istanbul']
             }
+        },
+
+        'gh-pages': {
+            options: {
+                message: 'Updates -- via grunt gh-pages'
+            },
+            src: [
+                'js/*',
+                'lib/*',
+                'img/*',
+                'index.html',
+                'lists.json',
+                'main.css',
+            ]
         }
+
     });
 
     grunt.registerTask('test', ['jasmine:all']);
@@ -48,5 +63,6 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-gh-pages');
 
 };
