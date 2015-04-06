@@ -1,3 +1,6 @@
+// fix for PhantomJS not implementing Number.isInteger
+Number.isInteger = Number.isInteger && Number.isInteger || function(x) { return typeof x == 'number' && x % 1 === 0; };
+
 beforeEach(function () {
     jasmine.addMatchers({
 

@@ -43,7 +43,8 @@ describe('app', function() {
     describe('output functions', function() {
         describe('outputRandomImage', function() {
             it('should set the style of the body tag', function() {
-                var styleRegex = /background: url\([\S]+[0-9]*.jpg\) 50% 50% \/ cover no-repeat fixed/;
+                // 1st group for chrome opening SpecRunner.html, 2nd for PhantomJS
+                var styleRegex = /(background: url\([\S]+[0-9]*.jpg\) 50% 50% \/ cover no-repeat fixed)|(background-image: url\([\S]+[0-9]*.jpg\); background-attachment: fixed; background-origin: initial; background-clip: initial; background-color: initial; -webkit-background-size: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;)/;
 
                 app.outputRandomImage();
 
