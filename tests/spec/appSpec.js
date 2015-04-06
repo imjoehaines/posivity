@@ -24,8 +24,15 @@ describe('app', function() {
                 'test torst teest',
                 'test trost teest'
             ];
+            
+            var jsonPath = '/tests/spec/test.json';
 
-            app.initialise('/tests/spec/test.json');
+            // PhantomJS needs a relative directory but this breaks running in browser
+            if (window._phantom) {
+                jsonPath = 'tests/spec/test.json';
+            }
+
+            app.initialise(jsonPath);
 
             // small timeout to wait for ajax
             // TODO: use jasmine-ajax to mock ajax call so this isn't needed
