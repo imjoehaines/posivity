@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+
         jasmine: {
             all: {
                 src: [
@@ -22,6 +23,7 @@ module.exports = function(grunt) {
                         coverage: 'coverage/json/coverage.json',
                         report: [
                             {type: 'html', options: {dir: 'coverage/html'}},
+                            {type: 'lcov', options: {dir: 'coverage/lcov'}},
                             {type: 'text-summary'}
                         ]
                     }
@@ -35,7 +37,7 @@ module.exports = function(grunt) {
                     'js/*.js',
                     'tests/spec/*.js'
                 ],
-                tasks: ['jasmine:all']
+                tasks: ['jasmine:istanbul']
             }
         }
     });
