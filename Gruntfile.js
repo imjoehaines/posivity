@@ -37,8 +37,12 @@ module.exports = function(grunt) {
                     'js/*.js',
                     'tests/spec/*.js'
                 ],
-                tasks: ['jasmine:istanbul']
+                tasks: ['jasmine:istanbul', 'jshint:all']
             }
+        },
+
+        jshint: {
+            all: ['js/*.js', 'tests/spec/*.js']
         },
 
         'gh-pages': {
@@ -64,5 +68,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-gh-pages');
+    grunt.loadNpmTasks('grunt-notify');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
 };
