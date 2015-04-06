@@ -4,16 +4,7 @@ var app = {
      * @param {string} Path to a JSON file
      */
     initialise: function(jsonFile) {
-        var imageNumber = $l.helpers.random(1, 29);
-
-        $l.css.setProperty(
-            $l('body'), {
-                'background': 'url(\'img/' + imageNumber + '.jpg\') no-repeat center center fixed',
-                '-webkit-background-size': 'cover',
-                '-moz-background-size': 'cover',
-                '-o-background-size': 'cover',
-                'background-size': 'cover',
-         });
+        app.outputRandomImage();
 
         // ajax call - json file, query string, success callback, failure callback
         $l.ajax.getJson(
@@ -30,6 +21,23 @@ var app = {
                 app.outputFromPredefinedList();
             }
         );
+    },
+
+    /**
+     * Sets a random image as the background of the body tag
+     */
+    outputRandomImage: function() {
+        var imageNumber = $l.helpers.random(1, 29);
+
+        $l.css.setProperty(
+            $l('body'), {
+                'background': 'url(\'img/' + imageNumber + '.jpg\') no-repeat center center fixed',
+                '-webkit-background-size': 'cover',
+                '-moz-background-size': 'cover',
+                '-o-background-size': 'cover',
+                'background-size': 'cover',
+            }
+         );
     },
 
     /**
