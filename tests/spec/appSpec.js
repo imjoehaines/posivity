@@ -1,6 +1,8 @@
 describe('app', function() {
     var element;
     var body;
+    var predefinedMessages;
+    var jsonPath;
 
     beforeEach(function() {
         element = document.createElement('section');
@@ -9,6 +11,28 @@ describe('app', function() {
 
         body = document.getElementsByTagName('body')[0];
         body.appendChild(element);
+
+        predefinedMessages = [
+            'The fire edits the puny land',
+            'The salt widens the thick reward',
+            'The family applys the father',
+            'The comfort discusss the paste',
+            'When does the run conduct the premium lift?',
+            'Why does the representative check out the tremendous sleep?',
+            'When does the cry investigate the plant feeling?',
+            'The violent daughter creates the hope',
+            'The week recognizes the base',
+            'The paste boosts the copy',
+            'The laugh motivates the join',
+            'The father copys the delicate level'
+        ];
+
+        jsonPath = '/tests/spec/test.json';
+
+        // PhantomJS needs a relative directory but this breaks running in browser
+        if (window._phantom) {
+            jsonPath = 'tests/spec/test.json';
+        }
     });
 
     afterEach(function() {
@@ -16,7 +40,7 @@ describe('app', function() {
     });
 
     describe('initialise', function() {
-        it('should output a list from an ajax call', function(done) {
+        it('should output a list from an ajax call', function() {
             var expectedMessages = [
                 'test toast teest',
                 'test tist teest',
@@ -24,26 +48,46 @@ describe('app', function() {
                 'test torst teest',
                 'test trost teest'
             ];
-            
-            var jsonPath = '/tests/spec/test.json';
 
-            // PhantomJS needs a relative directory but this breaks running in browser
-            if (window._phantom) {
-                jsonPath = 'tests/spec/test.json';
-            }
+            var exampleJson = '{"possibleLists":["test"],"test":{"prefix":"test ","messages":["toast","tist","tost","torst","trost"],"suffix":" teest"}}';
+
+            spyOn($l.ajax, 'makeRequest').and.callFake(function(params) {
+                params.success(
+                    JSON.parse(exampleJson)
+                );
+            });
 
             app.initialise(jsonPath);
 
-            // small timeout to wait for ajax
-            // TODO: use jasmine-ajax to mock ajax call so this isn't needed
-            setTimeout(function() {
-                expect(element.innerHTML).toBeInArray(expectedMessages);
-                done();
-            }, 25);
+            // check ajax call went out
+            expect($l.ajax.makeRequest).toHaveBeenCalled();
+            expect(element.innerHTML).toBeInArray(expectedMessages);
         });
 
-        xit('should fallback to a predefined list if ajax fails', function(done) {
-            // TODO: use jasmine-ajax to allow ajax call to fail
+        it('should fallback to a predefined list if an error is thrown', function() {
+            spyOn($l.ajax, 'makeRequest').and.callFake(function(params) {
+                params.success({
+                    thisWill: 'break'
+                });
+            });
+
+            app.initialise(jsonPath);
+
+            expect($l.ajax.makeRequest).toHaveBeenCalled();
+            expect(element.innerHTML).toBeInArray(predefinedMessages);
+        });
+
+        it('should fallback to a predefined list if ajax fails', function() {
+            spyOn($l.ajax, 'makeRequest').and.callFake(function(params) {
+                params.error({
+                    something: 'broke'
+                });
+            });
+
+            app.initialise(jsonPath);
+
+            expect($l.ajax.makeRequest).toHaveBeenCalled();
+            expect(element.innerHTML).toBeInArray(predefinedMessages);
         });
     });
 

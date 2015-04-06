@@ -23,6 +23,9 @@ var app = {
         );
     },
 
+    /**
+     * Sets a random image as the background of the body tag
+     */
     outputRandomImage: function() {
         var imageNumber = $l.helpers.random(1, 29);
 
