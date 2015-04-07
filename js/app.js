@@ -1,10 +1,16 @@
 var app = {
     /**
      * Function called on page load to output a message and set page background
-     * @param {string} Path to a JSON file
+     * @param {string}  Path to a JSON file
+     * @param {integer} numberOfImages The number of possible background images
      */
-    initialise: function(jsonFile) {
-        app.outputRandomImage();
+    initialise: function(jsonFile, numberOfImages) {
+        // only need to check numberOfImages as json has a fallback
+        if (!numberOfImages) {
+            throw new Error('Can\'t output an image without a maximum number');
+        }
+
+        app.outputRandomImage(numberOfImages);
 
         // ajax call - json file, query string, success callback, failure callback
         $l.ajax.getJson(
@@ -25,9 +31,14 @@ var app = {
 
     /**
      * Sets a random image as the background of the body tag
+     * @param {integer} numberOfImages The number of possible background images 
      */
-    outputRandomImage: function() {
-        var imageNumber = $l.helpers.random(1, 29);
+    outputRandomImage: function(numberOfImages) {
+        if (!numberOfImages) {
+            throw new Error('Can\'t output an image without a maximum number');
+        }
+
+        var imageNumber = $l.helpers.random(1, numberOfImages);
 
         $l.css.setProperty(
             $l('body'), {
@@ -42,7 +53,7 @@ var app = {
 
     /**
      * Outputs a message from a JSON object
-     * @param  {object} response An object returned from ajax call
+     * @param {object} response An object returned from ajax call
      */
     outputFromJsonList: function(response) {
         var listIndex = $l.helpers.random(0, response.possibleLists.length - 1);
