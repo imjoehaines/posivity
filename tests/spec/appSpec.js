@@ -13,16 +13,16 @@ describe('app', function() {
         body.appendChild(element);
 
         predefinedMessages = [
-            "Stay positive",
-            "Think positive",
-            "Smile!",
-            "Good things are going to happen!",
-            "Always believe",
-            "Believe in yourself!",
-            "You can do anything!",
-            "You're amazing!",
-            "You're beautiful!",
-            "You're brilliant!"
+            'Stay positive',
+            'Think positive',
+            'Smile!',
+            'Good things are going to happen!',
+            'Always believe',
+            'Believe in yourself!',
+            'You can do anything!',
+            'You\'re amazing!',
+            'You\'re beautiful!',
+            'You\'re brilliant!'
         ];
 
         jsonPath = '/tests/spec/test.json';
@@ -164,16 +164,16 @@ describe('app', function() {
                 app.outputFromPredefinedList();
 
                 var expectedMessages = [
-                    "Stay positive",
-                    "Think positive",
-                    "Smile!",
-                    "Good things are going to happen!",
-                    "Always believe",
-                    "Believe in yourself!",
-                    "You can do anything!",
-                    "You're amazing!",
-                    "You're beautiful!",
-                    "You're brilliant!"
+                    'Stay positive',
+                    'Think positive',
+                    'Smile!',
+                    'Good things are going to happen!',
+                    'Always believe',
+                    'Believe in yourself!',
+                    'You can do anything!',
+                    'You\'re amazing!',
+                    'You\'re beautiful!',
+                    'You\'re brilliant!'
                 ];
 
                 expect(element.innerHTML).toBeInArray(expectedMessages);

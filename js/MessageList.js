@@ -41,16 +41,16 @@ var MessageList = function() {};
      */
     MessageList.prototype.setPredefinedList = function() {
         this.setList([
-            "Stay positive",
-            "Think positive",
-            "Smile!",
-            "Good things are going to happen!",
-            "Always believe",
-            "Believe in yourself!",
-            "You can do anything!",
-            "You're amazing!",
-            "You're beautiful!",
-            "You're brilliant!"
+            'Stay positive',
+            'Think positive',
+            'Smile!',
+            'Good things are going to happen!',
+            'Always believe',
+            'Believe in yourself!',
+            'You can do anything!',
+            'You\'re amazing!',
+            'You\'re beautiful!',
+            'You\'re brilliant!'
         ]);
 
         return this;
