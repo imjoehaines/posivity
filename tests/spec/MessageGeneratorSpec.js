@@ -56,6 +56,12 @@ describe('MessageGenerator', function() {
             expect(index).toBeIntBetween(0, 10);
         });
 
+        it('should not return a number between 0 and 10 when passed 10', function() {
+            var index = messageGenerator.getRandomIndex(10);
+
+            expect(index).not.toBeIntBetween(11, 10000);
+        });
+
         it('should throw an error if passed an array', function() {
             expect(function() {
                 messageGenerator.getRandomIndex([1000]);

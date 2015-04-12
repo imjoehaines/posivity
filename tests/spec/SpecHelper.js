@@ -21,12 +21,14 @@ beforeEach(function () {
                 compare: function (actual, min, max) {
                     return {
                         pass: (
+                            max > min &&
                             Number.isInteger(actual) &&
                             Number.isInteger(min) &&
-                            Number.isInteger(max)) &&
+                            Number.isInteger(max) &&
                             (actual >= min && actual <= max)
+                        )
                     };
-                }
+                },
             };
         }
     });
