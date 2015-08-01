@@ -107,40 +107,10 @@ describe('app', function() {
                     something: 'broke'
                 });
             });
-
-            expect(function() {
-                app.initialise();
-            }).toThrow(new Error('Can\'t output an image without a maximum number'));
         });
     });
 
     describe('output functions', function() {
-        describe('outputRandomImage', function() {
-            it('should set the style of the body tag', function() {
-                // 1st group for chrome opening SpecRunner.html, 2nd for PhantomJS
-                // url isn't important but must end in img/[a number].jpg
-                var styleRegex = /(background: url\([\S]+img\/[0-9]+.jpg\) 50% 50% \/ cover no-repeat fixed)|(background-image: url\([\S]+img\/[0-9]+.jpg\); background-attachment: fixed; background-origin: initial; background-clip: initial; background-color: initial; -webkit-background-size: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;)/;
-
-                app.outputRandomImage(10);
-
-                expect($l.dom.attr(body, 'style')).toMatch(styleRegex);
-            });
-
-            it('should set the image to 1 when passed 1', function() {
-                var styleRegex = /(background: url\([\S]+img\/1.jpg\) 50% 50% \/ cover no-repeat fixed)|(background-image: url\([\S]+img\/1.jpg\); background-attachment: fixed; background-origin: initial; background-clip: initial; background-color: initial; -webkit-background-size: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;)/;
-
-                app.outputRandomImage(1);
-
-                expect($l.dom.attr(body, 'style')).toMatch(styleRegex);
-            });
-
-            it('should throw an error when nothing is passed', function() {
-                expect(function() {
-                    app.outputRandomImage();
-                }).toThrow(new Error('Can\'t output an image without a maximum number'));
-            });
-        });
-
         describe('outputFromJsonList', function() {
             it('should output from a given json response', function() {
                 var exampleJson = '{"possibleLists":["test"],"test":{"prefix":"test ","messages":["toast","tist","tost","torst","trost"],"suffix":" teest"}}';

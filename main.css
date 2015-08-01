@@ -1,21 +1,26 @@
-html {
-    background: 'rgb(50, 50, 50)';
-}
-
-html, body {
+html, body, main {
     height: 100%;
     overflow: hidden;
 }
 
 body {
-    max-width: 66%;
-    margin: 0 auto;
+    margin: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    text-align: center;
+    background: rgb(50, 50, 50);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 p {
     margin: 0;
+}
+
+main {
+    max-width: 66%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 header {
@@ -31,7 +36,10 @@ header {
 }
 
 section {
+    display: -webkit-flex;
     display: flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
     align-items: center;
     justify-content: center;
     height: 90%;
