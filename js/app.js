@@ -15,7 +15,7 @@ var app = {
                     app.outputFromPredefinedList();
                 }
             },
-            function(response) {
+            function() {
                 app.outputFromPredefinedList();
             }
         );
