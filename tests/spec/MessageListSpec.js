@@ -1,62 +1,63 @@
-describe('MessageList', function() {
-    var messageList;
+/*global describe, beforeEach, it, expect, MessageList */
 
-    beforeEach(function() {
-        messageList = new MessageList();
-    });
+describe('MessageList', function () {
+  var messageList
 
-    describe('set & get list', function() {
-        it('should allow a list to be set and fetched', function() {
-            var list = ['some', 'test', 'messages'];
+  beforeEach(function () {
+    messageList = new MessageList()
+  })
 
-            messageList.setList(list);
+  describe('set & get list', function () {
+    it('should allow a list to be set and fetched', function () {
+      var list = ['some', 'test', 'messages']
 
-            expect(messageList.getList()).toEqual(list);
-        });
+      messageList.setList(list)
 
-        it('should add prefixes & suffixes to a given list', function() {
-            var list = ['some', 'test', 'messages'];
-            var expectedList = ['a some b', 'a test b', 'a messages b'];
+      expect(messageList.getList()).toEqual(list)
+    })
 
-            messageList.setList(list, 'a ', ' b');
+    it('should add prefixes & suffixes to a given list', function () {
+      var list = ['some', 'test', 'messages']
+      var expectedList = ['a some b', 'a test b', 'a messages b']
 
-            expect(messageList.getList()).toEqual(expectedList);
-        });
+      messageList.setList(list, 'a ', ' b')
 
-        it('should throw an error if a list isn\'t an array', function() {
-            var list = { test: 'something' };
+      expect(messageList.getList()).toEqual(expectedList)
+    })
 
-            expect(function() {
-                messageList.setList(list);
-            }).toThrow(new Error('A new list must be a non-empty array'));
-        });
+    it("should throw an error if a list isn't an array", function () {
+      var list = { test: 'something' }
 
-        it('should throw an error if a list is an empty array', function() {
-            var list = [];
+      expect(function () {
+        messageList.setList(list)
+      }).toThrow(new Error('A new list must be a non-empty array'))
+    })
 
-            expect(function() {
-                messageList.setList(list);
-            }).toThrow(new Error('A new list must be a non-empty array'));
-        });
-    });
+    it('should throw an error if a list is an empty array', function () {
+      var list = []
 
-    describe('set predefined list', function() {
-        it('should set a predefined list', function() {
-            messageList.setPredefinedList();
+      expect(function () {
+        messageList.setList(list)
+      }).toThrow(new Error('A new list must be a non-empty array'))
+    })
+  })
 
-            expect(messageList.getList()).toEqual([
-                'Stay positive',
-                'Think positive',
-                'Smile!',
-                'Good things are going to happen!',
-                'Always believe',
-                'Believe in yourself!',
-                'You can do anything!',
-                'You\'re amazing!',
-                'You\'re beautiful!',
-                'You\'re brilliant!'
-            ]);
-        });
-    });
+  describe('set predefined list', function () {
+    it('should set a predefined list', function () {
+      messageList.setPredefinedList()
 
-});
+      expect(messageList.getList()).toEqual([
+        'Stay positive',
+        'Think positive',
+        'Smile!',
+        'Good things are going to happen!',
+        'Always believe',
+        'Believe in yourself!',
+        'You can do anything!',
+        "You're amazing!",
+        "You're beautiful!",
+        "You're brilliant!"
+      ])
+    })
+  })
+})
