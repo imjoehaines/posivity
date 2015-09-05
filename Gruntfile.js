@@ -30,9 +30,6 @@ module.exports = function (grunt) {
     },
 
     standard: {
-      options: {
-        format: true
-      },
       all: {
         src: ['js/*.js', 'tests/spec/*.js']
       }
