@@ -25,7 +25,7 @@ describe('MessageList', function () {
       expect(messageList.getList()).toEqual(expectedList)
     })
 
-    it("should throw an error if a list isn't an array", function () {
+    it('should throw an error if a list isn\'t an array', function () {
       var list = { test: 'something' }
 
       expect(function () {
@@ -54,9 +54,9 @@ describe('MessageList', function () {
         'Always believe',
         'Believe in yourself!',
         'You can do anything!',
-        "You're amazing!",
-        "You're beautiful!",
-        "You're brilliant!"
+        'You\'re amazing!',
+        'You\'re beautiful!',
+        'You\'re brilliant!'
       ])
     })
   })

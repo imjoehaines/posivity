@@ -50,9 +50,9 @@ var MessageList = function () {}
       'Always believe',
       'Believe in yourself!',
       'You can do anything!',
-      "You're amazing!",
-      "You're beautiful!",
-      "You're brilliant!"
+      'You\'re amazing!',
+      'You\'re beautiful!',
+      'You\'re brilliant!'
     ])
 
     return this

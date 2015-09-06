@@ -22,9 +22,9 @@ describe('app', function () {
       'Always believe',
       'Believe in yourself!',
       'You can do anything!',
-      "You're amazing!",
-      "You're beautiful!",
-      "You're brilliant!"
+      'You\'re amazing!',
+      'You\'re beautiful!',
+      'You\'re brilliant!'
     ]
 
     jsonPath = '/tests/spec/test.json'

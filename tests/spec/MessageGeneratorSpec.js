@@ -16,7 +16,7 @@ describe('MessageGenerator', function () {
       expect(messageGenerator.getMessages()).toEqual(messages)
     })
 
-    it("should throw an error if messages isn't an array", function () {
+    it('should throw an error if messages isn\'t an array', function () {
       var messages = 'some broken messages'
 
       // anonymous function so setMessages() isn't executed directly
